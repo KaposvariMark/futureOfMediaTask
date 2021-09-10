@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 @Data
+@Table(name = "contact_persons")
 public class ContactPerson {
 
     @Id
@@ -26,12 +28,12 @@ public class ContactPerson {
     private String lastName;
     private String email; //+validation
     private String phoneNumber; //optional; only E-164 format
-    private String company; // chosable from data base
-    private String comment;
-    private Status status;
-
-    private LocalDate created;
-    private LocalDate modified;
+//    private String company; // chosable from data base
+//    private String comment;
+//    private Status status;
+//
+//    private LocalDate created;
+//    private LocalDate modified;
 
 
 }
