@@ -29,18 +29,14 @@ public class ContactPersonController {
         return contactPersonRepository.findAll(pageable);
     }
 
-//    @GetMapping("/get/{id}")
-//    public ContactPerson getById(@PathVariable Long id){
-//        ContactPerson cp = contactPersonRepository.getById(id);
-//        return cp;
-//    }
-//
-//    @DeleteMapping("/delete/{id}")
-//    public ResponseEntity<?> deleteContactPerson(Long id){
-//        return contactPersonRepository.findById(id)
-//                .map(contactPerson -> {
-//                    contactPersonRepository.delete(contactPerson);
-//                    return ResponseEntity.ok().build();
-//                }).orElseThrow(() -> new ResourceNotFoundException("Contact Person was not found with id: " + id));
-//    }
+    @GetMapping("/get/{id}")
+    public ContactPerson getById(@PathVariable Long id){
+        return contactPersonRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Contact Person was not found with id: " + id));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteContactPerson(@PathVariable Long id){
+        contactPersonRepository.deleteById(id);
+    }
 }
