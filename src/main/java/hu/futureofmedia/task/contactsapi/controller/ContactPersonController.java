@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/contacts")
@@ -25,8 +26,8 @@ public class ContactPersonController {
     }
 
     @GetMapping("/list")
-    public Page<ContactPerson> listContactPersons(Pageable pageable){
-        return contactPersonRepository.findAll(pageable);
+    public List<ContactPerson> listContactPersons(){
+        return contactPersonRepository.findAll();
     }
 
     @GetMapping("/get/{id}")
