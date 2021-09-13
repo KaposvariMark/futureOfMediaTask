@@ -6,10 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 
 @Entity
@@ -24,9 +23,16 @@ public class ContactPerson {
     @GeneratedValue
     private long id;
 
+    @NotEmpty
     private String firstName;
+
+    @NotEmpty
     private String lastName;
-    private String email; //+validation
+
+    @NotEmpty
+    @Email
+    private String email;
+
     private String phoneNumber; //optional; only E-164 format
 //    private String company; // chosable from data base
 //    private String comment;
