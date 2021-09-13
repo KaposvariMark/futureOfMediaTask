@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class ContactPersonService {
 
-    public static final int PAGE_SIZE = 3;
+    public static final int PAGE_SIZE = 10;
 
     @Autowired
     private ContactPersonRepository contactPersonRepository;

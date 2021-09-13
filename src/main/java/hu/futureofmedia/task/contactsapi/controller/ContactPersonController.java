@@ -1,6 +1,8 @@
 package hu.futureofmedia.task.contactsapi.controller;
 
+import hu.futureofmedia.task.contactsapi.entities.Company;
 import hu.futureofmedia.task.contactsapi.entities.ContactPerson;
+import hu.futureofmedia.task.contactsapi.repositories.CompanyRepository;
 import hu.futureofmedia.task.contactsapi.service.ContactPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +17,15 @@ import java.util.List;
 public class ContactPersonController {
 
     @Autowired
+    private CompanyRepository companyRepository;
+
+    @Autowired
     private ContactPersonService contactPersonService;
+
+    @GetMapping("/companies")
+    public List<Company> listCompanies(){
+        return companyRepository.findAll();
+    }
 
     @GetMapping("/list")
     public List<ContactPerson> listContactPersons(){

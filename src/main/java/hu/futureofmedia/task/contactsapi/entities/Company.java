@@ -5,8 +5,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Company {
+
     @Id
     private Long id;
+
     private String name;
 
     public Long getId() {
